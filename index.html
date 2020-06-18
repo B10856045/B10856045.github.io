@@ -1,97 +1,265 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>台南牛點餐價格表</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        h1,
-        h2 {
-            font-weight: bolder;
-            text-align: center;
+        @media screen and (min-width:768px) {
+            .item-group {
+                display: flex;
+            }
+            .btn {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            nav a {
+                border-bottom: none;
+            }
         }
         
-        h1 {
-            font-size: 36px;
-            color: blue;
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
         
-        h2 {
-            font-size: 28px;
-            color: red;
+        .header {
+            height: 50px;
+            background-color: rgb(34, 185, 42);
+            position: relative;
         }
         
-        table {
+        .btn {
+            width: 40px;
+            height: 40px;
+            background-color: rgb(34, 185, 42);
+            display: block;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        
+        .btn span {
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: rgb(11, 109, 40);
+            top: 0;
+            bottom: 0;
             margin: auto;
-            border-width: 1px;
-            border-style: dotted;
+            box-shadow: 0px 8px 0px rgb(11, 109, 40), 0px -8px 0px rgb(11, 109, 40);
+        }
+        
+        nav {
+            width: 40%;
+            height: 100vh;
+            background-color: rgb(11, 109, 40);
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #a6e22e;
+            padding: 10px 20px;
+            border-bottom: 1px solid #a6e22e;
+        }
+        
+        #menu {
+            position: absolute;
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: rgb(34, 185, 42);
+            color: #aaa;
             text-align: center;
-            font-size: 18px;
+            padding: 10px 0;
         }
         
-        #tableCaption {
-            border-style: dashed;
-            border-width: 1px;
-        }
-        
-        td {
-            border-width: 1px;
-        }
-        
-        content {
-            color: red;
-            font-family: Arial;
-            font-size: 18px;
-        }
-        
-        tableTitle {
-            font-weight: bolder;
-            font-size: 18px;
-            color: purple;
+        .title h2 {
             text-align: center;
+            font-size: 46px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(11, 109, 40);
+        }
+        
+        .title p {
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .item .pic img {
+            width: 100%;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: #ffa;
         }
     </style>
-
 </head>
 
 <body>
-    <h1>台南牛點餐價格表</h1>
-    <h2>折扣內容:1000元以上(含1000元)折100</h2>
-    <table>
-        <table border="1">
-            <script language="JavaScript">
-                var i, j, dd;
 
-                document.write("<tr><td></td>");
-                for (i = 50; i <= 250; i += 50)
+    <input type="checkbox" name="" id="menu">
 
-                    document.write("<td><b><tableTitle>" + i + "元</tableTitle></b></td>");
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRRgwCS43ULdpXLNV1I8jQZnjnbzGEV7pu3qnbsmqyDOohK7cU3&usqp=CAU" width="50px" height="50px">
+            </a>
+        </h1>
+        <a href="#">
+            <label for="menu" class="btn"> 
+                        <span>選單</span>
+                    </label>
+        </a>
+        <nav>
+            <a href="#">
+            </a><a href="#">連結</a>
+            <a href="#">連結</a>
+            <a href="#">連結</a>
+        </nav>
+    </div>
 
-                document.write("<tr>");
 
-                for (i = 1; i <= 7; i++) {
-                    document.write("<tr>");
-                    document.write("<td><b><tableTitle>" + i + "</tableTitle></b></td>");
-                    j = 50;
-                    for (j = 50; j <= 250; j += 50) {
-                        document.write("<td>");
-                        dd = i * j;
-                        if (dd > 999) {
-                            document.write("<content>原價:" + dd + "<br></content>");
-                            dd = dd - 100;
-                            document.write("<content>" + dd + "</content>");
-                        } else {
-                            document.write(dd);
-                        }
+    <div class="bg">
+        <img src="https://cdn.hk01.com/di/media/images/250985/org/f77c065f88eb661711ebe176b84be23b.jpg/gVNdYUFnohjf0Sj9hzhP26c5X0cJ-ji3r465i6-OuYs?v=w1280r16_9">
+    </div>
 
-                        document.write("</td>");
+    <div class="about">
+        <div class="wrap">
+            <div class="title">
+                <h2>關於我們</h2>
+                <p></p>
+            </div>
+            <div class="item-group">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://cdn2.ettoday.net/images/1950/1950426.jpg" width="25%" height="200px">
+                    </div>
+                    <div class="text">
+                        <h3>一</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6vtBY4bQcWK3K_pbvhhGDjj2zITvyOGVEnPkwt33lK5IiJmvI&usqp=CAU" width="40%" height="200px">
+                    </div>
+                    <div class="text">
+                        <h3>二</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUmN8k9ZeIz-tuk0AMDpDvymx9fE11kYweGzHw5bz5hB-bQzSv&usqp=CAU" width="40%" height="200px">
+                    </div>
+                    <div class="text">
+                        <h3>三</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://www.mirrormedia.com.tw/assets/images/20180526175607-fcf1ef7b11f53998f516494ad25d4a0c-mobile.jpg" width="15%" height="200px">
+                    </div>
+                    <div class="text">
+                        <h3>四</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    }
-                    document.write("<tr>");
-                }
-            </script>
-        </table>
+
+
+
+
+
+    <div class="two">
+        <div class="wrap">
+            <div class="item-group">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://cc.tvbs.com.tw/img/upload/2020/02/28/20200228124001-0dd13864.jpg" width="100%">
+                    </div>
+                    <div class="text">
+                        <h3>貓狗</h3>
+                        <p>B10856045</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © copyright 2020 by B10856045
+    </div>
+
+
+
+
+
+
 </body>
 
 </html>
